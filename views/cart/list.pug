@@ -1,0 +1,59 @@
+extends ../layout
+
+block content
+    script(src='/javascripts/cart.js')
+    h1= title
+    button(id='create_cart') Создать
+    button(id='update_cart') Изменить
+    button(id='delete_cart') Удалить
+    table#tbl_cart
+        tr 
+            th id
+            th Клиент
+            th Дата создания
+
+
+    div#create_cart_popup.q-window
+          div.q-window-block(style="width:300px;height:220px;margin:0px 0 0 -400px")
+            div.q-window-header Добавить корзину
+              a#create_cart_popup_close(style="create: relative;left: 38px;") X
+            div.q-window-body.q-form
+              div.q-window-filters-form
+                div.q-form-data
+                  create(for="inpUserid") User id
+                  input#inpUserid(type="text")
+
+            div.q-buttons
+              a#submit_create_cart Создать
+              a#cancel_create_cart Отменить
+    
+    div#update_cart_popup.q-window
+          div.q-window-block(style="width:300px;height:220px;margin:0px 0 0 -400px")
+            div.q-window-header Изменить владельца корзины
+              a#update_cart_popup_close(style="update: relative;left: 38px;") X
+            div.q-window-body.q-form
+              div.q-window-filters-form
+                div.q-form-data
+                  update(for="inpIdup") Изменяемая корзина
+                  input#inpIdup(type="INT")  
+                div.q-form-data
+                  update(for="inpUidup") Изменить User id на 
+                  input#inpUidup(type="text")
+
+            div.q-buttons
+              a#submit_update_cart Изменить
+              a#cancel_update_cart Отменить
+
+    div#delete_cart_popup.q-window
+          div.q-window-block(style="width:300px;height:220px;margin:0px 0 0 -400px")
+            div.q-window-header Удалить корзину
+              a#delete_cart_popup_close(style="delete: relative;left: 38px;") X
+            div.q-window-body.q-form
+              div.q-window-filters-form
+                div.q-form-data
+                  delete(for="inpId") id корзины
+                  input#inpId(type="INT")
+
+            div.q-buttons
+              a#submit_delete_cart Удалить
+              a#cancel_delete_cart Отменить

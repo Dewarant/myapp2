@@ -1,0 +1,72 @@
+extends ../layout
+
+block content
+    script(src='/javascripts/provider.js')
+    h1= title
+    button(id='create_provider') Создать
+    button(id='update_provider') Изменить
+    button(id='delete_provider') Удалить
+    button(id='group_provider') Группировать
+    table#tbl_provider
+        tr 
+            th id
+            th Наименование
+            th Адресс
+
+    table#tbl_gprovider
+        tr 
+            th count(name)
+            th Адресс 
+
+
+    
+    div#create_provider_popup.q-window
+          div.q-window-block(style="width:400px;height:220px;margin:-150px 0 0 -400px")
+            div.q-window-header Добавить провайдера
+              a#create_provider_popup_close(style="create: relative;left: 300px;") X
+            div.q-window-body.q-form
+              div.q-window-filters-form
+                div.q-form-data
+                  create(for="inpName") Наименование
+                  input#inpName(type="text")
+                div.q-form-data
+                  create(for="inpAddres") Адрес
+                  input#inpAddres(type="text")
+
+            div.q-buttons
+              a#submit_create_provider Создать
+              a#cancel_create_provider Отменить
+
+    div#update_provider_popup.q-window
+          div.q-window-block(style="width:300px;height:220px;margin:0px 0 0 -400px")
+            div.q-window-header Изменение провайдера
+              a#update_provider_popup_close(style="update: relative;left: 38px;") X
+            div.q-window-body.q-form
+              div.q-window-filters-form
+                div.q-form-data
+                  update(for="inpUpid") ID склада
+                  input#inpUpid(type="text")  
+                div.q-form-data
+                  update(for="inpUpname") Наименование склада 
+                  input#inpUpname(type="text")
+                div.q-form-data
+                  update(for="inpUpaddres") Адрес склада
+                  input#inpUpaddres(type="INT")
+
+            div.q-buttons
+              a#submit_update_provider Изменить
+              a#cancel_update_provider Отменить
+
+    div#delete_provider_popup.q-window
+          div.q-window-block(style="width:300px;height:220px;margin:0px 0 0 -400px")
+            div.q-window-header Удалить провайдера
+              a#delete_provider_popup_close(style="delete: relative;left: 38px;") X
+            div.q-window-body.q-form
+              div.q-window-filters-form
+                div.q-form-data
+                  delete(for="inpId") id склада
+                  input#inpId(type="INT")
+
+            div.q-buttons
+              a#submit_delete_provider Удалить
+              a#cancel_delete_provider Отменить

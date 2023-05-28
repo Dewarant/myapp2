@@ -1,0 +1,48 @@
+extends ../layout
+
+block content
+    script(src='/javascripts/cart_item.js')
+    h1= title
+    button(id='create_cart_item') Создать
+    button(id='delete_cart_item') Удалить
+    table#tbl_cart_item
+        tr 
+            th id
+            th ID Корзины
+            th Продукт
+            th Количество в корзине
+            th Дата Корзины
+
+    div#create_cart_item_popup.q-window
+          div.q-window-block(style="width:300px;height:220px;margin:0px 0 0 -400px")
+            div.q-window-header Добавить предмет в корзину
+              a#create_cart_item_popup_close(style="create: relative;left: 38px;") X
+            div.q-window-body.q-form
+              div.q-window-filters-form
+                div.q-form-data
+                  create(for="inpCart") ID Корзины
+                  input#inpCart(type="text")
+                div.q-form-data
+                  label(for="inpProduct") ID Продукта
+                  input#inpProduct(type="text")  
+                div.q-form-data
+                  create(for="inpQuantity") Количество
+                  input#inpQuantity(type="text")
+
+            div.q-buttons
+              a#submit_create_cart_item Создать
+              a#cancel_create_cart_item Отменить
+
+    div#delete_cart_item_popup.q-window
+          div.q-window-block(style="width:300px;height:220px;margin:0px 0 0 -400px")
+            div.q-window-header Удалить пользователя
+              a#delete_cart_item_popup_close(style="delete: relative;left: 38px;") X
+            div.q-window-body.q-form
+              div.q-window-filters-form
+                div.q-form-data
+                  delete(for="inpId") ID for Delete
+                  input#inpId(type="INT")
+
+            div.q-buttons
+              a#submit_delete_cart_item Удалить
+              a#cancel_delete_cart_item Отменить

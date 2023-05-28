@@ -1,0 +1,91 @@
+extends ../layout
+
+block content
+    script(src='/javascripts/product.js')
+    <input type="text" id="searchname" placeholder="Поиск по имени">
+    <input type="text" id="inbetween" placeholder="Минимальная цена">
+    <input type="text" id="outbetween" placeholder="Максимальная цена">
+    h1= title
+    button(id='search_product') Поиск
+    button(id='order_product') Сортировать по цене
+    button(id='between_product') Поиск в промежутке
+    button(id='create_product') Создать
+    button(id='update_product') Изменить
+    button(id='delete_product') Удалить
+    table#tbl_product
+        tr 
+            th id
+            th Название
+            th Провайдер
+            th Описание
+            th Цена
+            th Количество 
+
+    div#create_product_popup.q-window
+          div.q-window-block(style="width:300px;height:220px;margin:0px 0 0 -400px")
+            div.q-window-header Добавить товар
+              a#create_product_popup_close(style="create: relative;left: 38px;") X
+            div.q-window-body.q-form
+              div.q-window-filters-form
+                div.q-form-data
+                  create(for="inpName") Название
+                  input#inpName(type="text")
+                div.q-form-data
+                  create(for="inpProvider_id") ID провайдера
+                  input#inpProvider_id(type="INT")
+                div.q-form-data 
+                  create(for="inpDescription") Описание
+                  input#inpDescription(type="text")  
+                div.q-form-data 
+                  create(for="inpPrice") Цена
+                  input#inpPrice(type="text")  
+                div.q-form-data 
+                  create(for="inpStock") Количество
+                  input#inpStock(type="INT") 
+
+            div.q-buttons
+              a#submit_create_product Создать
+              a#cancel_create_product Отменить
+
+    div#update_product_popup.q-window
+          div.q-window-block(style="width:300px;height:220px;margin:0px 0 0 -400px")
+            div.q-window-header Изменение товара
+              a#update_product_popup_close(style="update: relative;left: 38px;") X
+            div.q-window-body.q-form
+              div.q-window-filters-form
+                div.q-form-data
+                  update(for="inpUpid") ID изменяемого товара
+                  input#inpUpid(type="text")  
+                div.q-form-data
+                  update(for="inpUpname") Наименование товара 
+                  input#inpUpname(type="text")
+                div.q-form-data
+                  update(for="inpUpprovider") ID склада
+                  input#inpUpprovider(type="INT")
+                div.q-form-data
+                  update(for="inpUpdescription") Описание
+                  input#inpUpdescription(type="text") 
+                div.q-form-data
+                  update(for="inpUpprice") Цена 
+                  input#inpUpprice(type="text") 
+                div.q-form-data
+                  update(for="inpUpstock") Количество 
+                  input#inpUpstock(type="INT") 
+
+            div.q-buttons
+              a#submit_update_product Изменить
+              a#cancel_update_product Отменить
+
+    div#delete_product_popup.q-window
+          div.q-window-block(style="width:300px;height:220px;margin:0px 0 0 -400px")
+            div.q-window-header Удалить товар
+              a#delete_product_popup_close(style="delete: relative;left: 38px;") X
+            div.q-window-body.q-form
+              div.q-window-filters-form
+                div.q-form-data
+                  delete(for="inpId") id товара
+                  input#inpId(type="INT")
+
+            div.q-buttons
+              a#submit_delete_product Удалить
+              a#cancel_delete_product Отменить

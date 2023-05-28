@@ -1,0 +1,24 @@
+extends ../layout
+
+block content
+    h1= title
+    div
+      form
+        fieldset
+          label Логин
+          input(type='text', disabled=true, value=users.login)
+          br
+          label Имя
+          input(type='text', disabled=true, value=users.username)
+          br
+          label id Роль
+          input(type='text', disabled=true, value=users.id_role)
+          br
+          label email
+          input(type='text', disabled=true, value=users.email)
+          br
+          label Пароль
+          input(type='text', disabled=true, value=users.password)
+          br
+          label Дата создания
+          input(type='text', disabled=true, value=users.created_at)

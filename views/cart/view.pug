@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+    h1= title
+    div
+      form
+        fieldset
+          label User ID
+          input(type='text', disabled=true, value=cart.user_id)
+          br
+          label Дата создания
+          input(type='text', disabled=true, value=order.created_at)

@@ -1,0 +1,45 @@
+extends ../layout
+
+block content
+    script(src='/javascripts/orders.js')
+    h1= title
+    button(id='create_orders') Создать
+    button(id='delete_orders') Удалить
+    table#tbl_orders
+        tr 
+            th id
+            th Заказчик 
+            th Общая Сумма
+            th Дата Создания Заказа
+
+
+    div#create_orders_popup.q-window
+          div.q-window-block(style="width:300px;height:220px;margin:0px 0 0 -400px")
+            div.q-window-header Добавить Заказ
+              a#create_orders_popup_close(style="create: relative;left: 38px;") X
+            div.q-window-body.q-form
+              div.q-window-filters-form
+                div.q-form-data
+                  create(for="inpAmount") Общая цена
+                  input#inpAmount(type="text")
+                div.q-form-data
+                  create(for="inpUser_id") User id
+                  input#inpUser_id(type="text")
+
+            div.q-buttons
+              a#submit_create_orders Создать
+              a#cancel_create_orders Отменить
+
+    div#delete_orders_popup.q-window
+          div.q-window-block(style="width:300px;height:220px;margin:0px 0 0 -400px")
+            div.q-window-header Удалить Заказ
+              a#delete_orders_popup_close(style="delete: relative;left: 38px;") X
+            div.q-window-body.q-form
+              div.q-window-filters-form
+                div.q-form-data
+                  delete(for="inpId") id Заказа
+                  input#inpId(type="INT")
+
+            div.q-buttons
+              a#submit_delete_orders Удалить
+              a#cancel_delete_orders Отменить

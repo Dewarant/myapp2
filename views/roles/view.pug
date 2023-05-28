@@ -1,0 +1,14 @@
+extends ../layout
+
+block content
+    h1= title
+    div
+      form
+        fieldset
+          label Код
+          input(type='text', disabled=true, value=roles.code)
+          br
+          label Название
+          input(type='text', disabled=true, value=roles.label)
+          br
+

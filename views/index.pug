@@ -1,0 +1,37 @@
+extends layout
+
+block content
+    div
+        ul
+          li
+            a(href='/') Главная страница
+            if user
+              if can.view_users
+                li
+                  a(href='/users') Пользователи
+              if can.view_product
+                li
+                  a(href='/product') Концелярские товары
+              if can.view_provider
+                li
+                  a(href='/provider') Постовщики        
+              if can.view_cart
+                li
+                  a(href='/cart') Корзина
+              if can.view_cart_item
+                li
+                  a(href='/cart_item') Предмет в корзине    
+              if can.view_orders
+                li
+                  a(href='/orders') Заказы
+              if can.view_orders_item
+                li
+                  a(href='/orders_item') Предмет в заказе    
+              if can.view_roles
+                li
+                  a(href='/roles') Роли
+              li
+                a(href='', id='Logout') Выйти
+            else
+                li
+                    a(href='', id='Login') Войти
